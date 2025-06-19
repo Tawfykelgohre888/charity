@@ -1,0 +1,42 @@
+<section class="py-5 bg-light" dir="rtl" style="font-family: 'Cairo', sans-serif;">
+  <div class="container">
+    <h2 class="text-success fw-bold text-center mb-4">أعضاء مجلس الإدارة</h2>
+    <p class="text-center text-muted mb-5 fs-5">
+      نعتز بفريق مجلس الإدارة الذي يقود الجمعية نحو تحقيق رسالتها المجتمعية.
+    </p>
+
+    <div class="row g-4 justify-content-center">
+  @for ( member of boardNumber; track $index) {
+    <div class="col-md-4 col-sm-6">
+      <div class="card member-card border-0 h-100 text-center p-4 transition">
+        <img
+          [src]="member.Image"
+          class="rounded-circle mx-auto mb-3 shadow"
+          width="120"
+          height="120"
+          alt="صورة {{ member.name }}"
+        />
+        <h5 class="fw-bold text-success">{{ member.name }}</h5>
+        <p class="mb-1 text-muted">{{ member.position }}</p>
+        <p class="text-muted small">{{ member.job }}</p>
+
+        <!-- أيقونات التواصل -->
+        <div class="d-flex justify-content-center gap-3 mt-3 fs-5">
+          @if (member.phone) {
+            <a [href]="'tel:' + member.phone" class="text-dark" title="اتصال">
+              <i class="fas fa-phone text-success"></i>
+            </a>
+          }
+          @if (member.whatsapp) {
+            <a [href]="'https://wa.me/2' + member.whatsapp" target="_blank" class="text-dark" title="واتساب">
+              <i class="fab fa-whatsapp text-success"></i>
+            </a>
+          }
+        </div>
+      </div>
+    </div>
+  }
+</div>
+
+  </div>
+</section>

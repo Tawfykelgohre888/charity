@@ -1,12 +1,12 @@
-<div dir="rtl" class="my-5" style="font-family: 'Cairo', sans-serif;">
+<div dir="rtl" style="font-family: 'Cairo', sans-serif;">
 
   <!-- الهيدر الرئيسي -->
-  <section class="text-white text-center py-5" style="
+  <section class="text-white text-center py-5 my-5" style="
     background: linear-gradient(to right, rgba(25, 135, 84, 0.7), rgba(40, 167, 69, 0.7)),
     url('https://img.freepik.com/free-photo/group-happy-volunteers_23-2147783498.jpg');
     background-size: cover;
     background-position: center;">
-    <div class="container">
+    <div class="container mt-5">
       <h1 class="display-4 fw-bold bg-dark bg-opacity-50 p-3 rounded d-inline-block">جمعية تنمية المجتمع</h1>
       <p class="lead bg-dark bg-opacity-50 p-2 rounded d-inline-block mt-2">معًا نزرع الأمل ونبني المستقبل</p>
       <a routerLink="/Donations" class="btn btn-light mt-4 px-5 py-2 rounded-pill fw-bold">تبرع الآن</a>
@@ -14,15 +14,17 @@
   </section>
 
   <!-- من نحن -->
-  <section class="py-5 bg-light">
+  <section id="about" class="py-5 bg-light">
     <div class="container">
       <div class="row align-items-center g-4">
         <div class="col-md-6 text-center">
-          <img src="assets/logo.jfif" class="img-fluid rounded-circle shadow" style="max-width: 300px;" alt="عن الجمعية">
+          <img src="assets/images/logo.jfif" class="img-fluid rounded-circle shadow" style="max-width: 350px;"
+            alt="عن الجمعية">
         </div>
         <div class="col-md-6">
           <h2 class="text-success fw-bold mb-3">من نحن</h2>
-          <p class="fs-5 text-muted">نحن جمعية خيرية مشهرة رقم 1631 لسنة 2006، نعمل على تقديم الدعم للمحتاجين، وتمكين الشباب، وحماية البيئة في منشأة رضوان – الشرقية.</p>
+          <p class="fs-5 text-muted">نحن جمعية خيرية مشهرة برقم 1631 لسنة 2006، نعمل على تقديم الدعم للمحتاجين، وتمكين
+            الشباب، وحماية البيئة في منشأة رضوان – الشرقية.</p>
           <ul class="list-unstyled text-muted fs-6">
             <li><i class="fas fa-check-circle text-success ms-2"></i> أكثر من 500 أسرة يتم دعمها سنويًا</li>
             <li><i class="fas fa-check-circle text-success ms-2"></i> تنفيذ 120+ حملة بيئية وتوعوية</li>
@@ -33,32 +35,41 @@
     </div>
   </section>
 
-  <!-- الخدمات -->
+  <!-- رسالة الجمعية -->
   <section class="py-5">
+    <div class="container text-center">
+      <h2 class="text-success fw-bold mb-4">رسالتنا</h2>
+      <p class="fs-5 text-muted w-75 mx-auto">نسعى إلى بناء مجتمع متكافل، يتمتع فيه كل فرد بفرصة عادلة للعيش بكرامة من
+        خلال توفير الدعم والرعاية، وتعزيز روح التعاون والعمل التطوعي، وتنمية الوعي البيئي والاجتماعي.</p>
+    </div>
+  </section>
+
+  <!-- خدماتنا -->
+  <section id="services" class="py-5 bg-light">
     <div class="container">
       <h2 class="text-success fw-bold text-center mb-5">خدماتنا</h2>
       <div class="row text-center g-4">
         <div class="col-md-4">
           <div class="card h-100 border-0 shadow">
-            <img src="https://img.freepik.com/free-photo/volunteers-distributing-food-boxes_23-2148871623.jpg" class="card-img-top" alt="مساعدات">
+            <img src="assets/images/charity.webp" class="card-img-top" alt="مساعدات">
             <div class="card-body">
               <h5 class="fw-bold text-success">مساعدات إنسانية</h5>
-              <p class="text-muted">نوفر الدعم الغذائي والمالي والعلاجي لأسر تحتاج إلى المساعدة العاجلة.</p>
+              <p class="text-muted">نوفر الدعم الغذائي والمالي والعلاجي للأسر المحتاجة والظروف الطارئة.</p>
             </div>
           </div>
         </div>
         <div class="col-md-4">
           <div class="card h-100 border-0 shadow">
-            <img src="https://img.freepik.com/free-photo/happy-people-planting-tree_23-2148923205.jpg" class="card-img-top" alt="بيئة">
+            <img src="assets/images/flower.webp" class="card-img-top" alt="بيئة">
             <div class="card-body">
               <h5 class="fw-bold text-success">حملات بيئية</h5>
-              <p class="text-muted">نُقيم حملات نظافة، وتشجير، وتوعية لحماية بيئتنا المحلية من التلوث.</p>
+              <p class="text-muted">نُقيم حملات نظافة وتشجير وتوعية لحماية بيئتنا المحلية من التلوث.</p>
             </div>
           </div>
         </div>
         <div class="col-md-4">
           <div class="card h-100 border-0 shadow">
-            <img src="https://img.freepik.com/free-photo/group-people-learning-computer-classroom_23-2149240321.jpg" class="card-img-top" alt="تدريب">
+            <img src="assets/images/trining.jpg" class="card-img-top" alt="تدريب">
             <div class="card-body">
               <h5 class="fw-bold text-success">تدريب وتمكين</h5>
               <p class="text-muted">ورش تدريب للشباب والنساء لتمكينهم اقتصاديًا ومهنيًا.</p>
@@ -69,49 +80,116 @@
     </div>
   </section>
 
-  <!-- الإنجازات -->
-  <section class="py-5 bg-success text-white text-center">
+  <!-- أنشطتنا -->
+  <section id="activities" class="py-5">
     <div class="container">
-      <h2 class="fw-bold mb-4">بعض إنجازاتنا</h2>
+      <h2 class="text-success fw-bold text-center mb-4">أنشطتنا</h2>
       <div class="row g-4">
-        <div class="col-6 col-md-3">
-          <h1 class="display-5 fw-bold">+500</h1>
-          <p>أسرة مستفيدة</p>
+        <div class="col-md-4"><img src="../../../assets/images/tree.jpeg" class="img-fluid rounded shadow h-75" alt="نشاط 1"></div>
+        <div class="col-md-4"><img src="../../../assets/images/mos.jpg" class="img-fluid rounded shadow" alt="نشاط 2"></div>
+        <div class="col-md-4"><img src="../../../assets/images/trin.jpg" class="img-fluid rounded shadow" alt="نشاط 3"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- آراء المستفيدين -->
+  <section class="py-5 bg-light">
+    <div class="container">
+      <h2 class="text-success fw-bold text-center mb-5">آراء المستفيدين</h2>
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="p-4 shadow rounded bg-white">
+            <p class="fst-italic">"الجمعية غيرت حياتي للأفضل بعد ما حصلت على دعم مادي وتدريب متميز."</p>
+            <h6 class="fw-bold mt-3">أم محمود - مستفيدة</h6>
+          </div>
         </div>
-        <div class="col-6 col-md-3">
-          <h1 class="display-5 fw-bold">+120</h1>
-          <p>مبادرة بيئية</p>
-        </div>
-        <div class="col-6 col-md-3">
-          <h1 class="display-5 fw-bold">+300</h1>
-          <p>شخص تم تدريبه</p>
-        </div>
-        <div class="col-6 col-md-3">
-          <h1 class="display-5 fw-bold">+15</h1>
-          <p>سنة خدمة</p>
+        <div class="col-md-6">
+          <div class="p-4 shadow rounded bg-white">
+            <p class="fst-italic">"سعدت جدًا بالمشاركة في حملات النظافة والتشجير، حسيت إني بعمل فرق حقيقي."</p>
+            <h6 class="fw-bold mt-3">محمود حسين - متطوع</h6>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- التبرع -->
-  <section class="py-5 bg-warning text-dark text-center">
+
+  <!-- إنجازات الجمعية -->
+  <section class="py-5 bg-light">
     <div class="container">
-      <h2 class="fw-bold">ادعم رسالتنا بالتبرع</h2>
-      <p class="fs-5 mb-4">ساهم في بناء مستقبل أفضل لأطفالنا ومجتمعنا.</p>
-      <a routerLink="/Donations" class="btn btn-dark fw-bold px-5 py-2 rounded-pill">تبرع الآن</a>
+      <h2 class="text-success fw-bold text-center mb-4">إنجازات الجمعية</h2>
+      <div class="row g-4 text-center">
+        <div class="col-md-3">
+          <div class="shadow rounded p-4 bg-white">
+            <i class="fas fa-utensils fa-2x text-success mb-2"></i>
+            <h3 class="fw-bold">10,000+</h3>
+            <p class="text-muted mb-0">وجبة غذائية وزعت</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="shadow rounded p-4 bg-white">
+            <i class="fas fa-tree fa-2x text-success mb-2"></i>
+            <h3 class="fw-bold">300+</h3>
+            <p class="text-muted mb-0">شجرة تم زراعتها</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="shadow rounded p-4 bg-white">
+            <i class="fas fa-briefcase fa-2x text-success mb-2"></i>
+            <h3 class="fw-bold">500+</h3>
+            <p class="text-muted mb-0">شاب وفتاة تم تدريبهم</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="shadow rounded p-4 bg-white">
+            <i class="fas fa-hand-holding-heart fa-2x text-success mb-2"></i>
+            <h3 class="fw-bold">120+</h3>
+            <p class="text-muted mb-0">حملة خيرية وتوعوية</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
+  <!-- الفعاليات القادمة -->
+  <section class="py-5">
+    <div class="container">
+      <h2 class="text-success fw-bold text-center mb-4">الفعاليات القادمة</h2>
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="border-start border-5 border-success ps-4 py-3 shadow bg-white rounded h-100">
+            <h5 class="fw-bold mb-1">توزيع لحوم على الأسر الأكثر احتياجًا</h5>
+            <p class="mb-1 text-muted">
+              <i class="far fa-calendar-alt ms-2 text-success"></i> الاثنين، 30 يونيو 2025
+            </p>
+            <p class="text-muted mb-0">تنظم الجمعية حملة لتوزيع اللحوم على أكثر من 200 أسرة داخل منشأة رضوان بمناسبة عيد
+              الأضحى.</p>
+          </div>
+
+        </div>
+        <div class="col-md-6">
+          <div class="border-start border-5 border-success ps-4 py-3 shadow bg-white rounded h-100">
+            <h5 class="fw-bold mb-1">حملة تنظيف وتشجير</h5>
+            <p class="mb-1 text-muted"><i class="far fa-calendar-alt ms-2 text-success"></i> العربغ، 30 يوليو 2025</p>
+            <p class="text-muted mb-0">نشارك مع المتطوعين في تنظيف وتشجير الشوارع المحيطة بمقر الجمعية.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
   <!-- تواصل معنا -->
-  <section class="py-5 text-center">
+  <section id="contact" class="py-5 text-center">
     <div class="container">
       <h2 class="text-success fw-bold mb-4">تواصل معنا</h2>
       <p class="mb-3 text-muted fs-5">نسعد دائمًا باستفساراتكم ومشاركتكم.</p>
       <div class="d-flex justify-content-center gap-4 fs-4">
         <a href="tel:01000606725" class="text-dark" title="اتصل بنا"><i class="fas fa-phone-alt text-success"></i></a>
-        <a href="https://wa.me/2011002663806?text=مرحبًا، أود المساهمة مع الجمعية" class="text-dark" target="_blank" title="واتساب"><i class="fab fa-whatsapp text-success"></i></a>
-        <a href="mailto:tawfykelgohre8@gmail.com" class="text-dark" title="راسلنا"><i class="fas fa-envelope text-success"></i></a>
+        <a href="https://wa.me/2011002663806?text=مرحبًا، أود المساهمة مع الجمعية" class="text-dark" target="_blank"
+          title="واتساب"><i class="fab fa-whatsapp text-success"></i></a>
+        <a href="mailto:tawfykelgohre8@gmail.com" class="text-dark" title="راسلنا"><i
+            class="fas fa-envelope text-success"></i></a>
       </div>
     </div>
   </section>

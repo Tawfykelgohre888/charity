@@ -12,4 +12,10 @@ export class DonationsComponent implements OnInit {
   ngOnInit() {
   }
 
+
+  goToDonation() {
+  window.open('https://example.com/donation', '_blank');
+}
+
+
 }

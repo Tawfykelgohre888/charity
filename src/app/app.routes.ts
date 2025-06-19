@@ -6,6 +6,7 @@ import { ServicesComponent } from './pages/services/services.component';
 import { VolunteerComponent } from './pages/volunteer/volunteer.component';
 import { FooterComponent } from './pages/footer/footer.component';
 import { DonationsComponent } from './pages/Donations/Donations.component';
+import { BoardMembersComponent } from './pages/boardMembers/boardMembers.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent,title:"home" },
@@ -14,5 +15,6 @@ export const routes: Routes = [
   { path: 'services', component: ServicesComponent,title:"services" },
   { path: 'volunteer', component: VolunteerComponent,title:"volunteer" },
   { path: 'Donations', component: DonationsComponent,title:"Donations" },
+  { path: 'board-Members', component: BoardMembersComponent,title:"boardMembers " },
   { path: 'footer', component: FooterComponent,title:"footer" },
 ];
