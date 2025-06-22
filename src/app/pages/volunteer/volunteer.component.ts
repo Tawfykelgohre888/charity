@@ -26,11 +26,14 @@ export class VolunteerComponent {
   });
 
   submitForm() {
-    if (this.volunteer.valid) {
-          this.toastr.success('تم إرسال البيانات بنجاح');
-          this.volunteer.reset();
-    } else {
-      this.toastr.error('من فضلك املأ البيانات بشكل صحيح');
-    }
+    this.googleSheet.sendVolunteerData(this.volunteer.value).subscribe({
+      next:()=>{
+        this.toastr.success('تم الارسال بنجاح')
+        this.volunteer.reset();
+      },error:(err)=>{
+        console.log(err);
+        this.toastr.error('حدث خطأ اثناء ارسال البيانات')
+      }
+    })
   }
 }
