@@ -1,0 +1,14 @@
+    .footer-icons a {
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .footer-icons a:hover {
+      transform: scale(1.2);
+      color: #ffd700 !important;
+    }
+
+    .btn-outline-light:hover {
+      background-color: #fff;
+      color: #1c3b2f;
+      border-color: #fff;
+    }

@@ -18,7 +18,7 @@
         <div class="p-4 bg-white rounded-4 shadow-sm border">
           <h4 class="text-center text-success mb-4">نموذج التبرع</h4>
 
-          <form>
+          <form [formGroup]="payMent"  >
             <div class="mb-3">
               <label class="form-label fw-semibold">الاسم الكامل</label>
               <input type="text" class="form-control rounded-pill px-4 py-2" placeholder="أدخل اسمك" required>
@@ -29,15 +29,26 @@
             </div>
             <div class="mb-3">
               <label class="form-label fw-semibold">طريقة الدفع</label>
-              <select class="form-select rounded-pill px-4 py-2" required>
+              <select class="form-select rounded-pill px-4 py-2" (change)="openPaymentModal($event)" required>
                 <option selected disabled>اختر طريقة الدفع</option>
                 <option value="vodafone">Vodafone Cash</option>
                 <option value="instapay">Instapay</option>
               </select>
             </div>
+
+            @if (showReceipt) {
+            <div class="mb-3">
+              <label class="form-label fw-semibold">ارفع صورة إيصال التحويل</label>
+              <input type="file" class="form-control rounded-3" (change)="onFileChange($event)" accept="image/*">
+            </div>
+            }
+
+
+
             <div class="mb-3">
               <label class="form-label fw-semibold">ملاحظات</label>
-              <textarea class="form-control rounded-3 px-3 py-2" rows="3" placeholder="هل لديك رسالة أو هدف للتبرع؟"></textarea>
+              <textarea class="form-control rounded-3 px-3 py-2" rows="3"
+                placeholder="هل لديك رسالة أو هدف للتبرع؟"></textarea>
             </div>
             <button type="submit" class="btn btn-success w-100 py-2 fw-bold rounded-pill">
               <i class="bi bi-heart-fill me-1"></i> تبرع الآن
@@ -49,8 +60,10 @@
             <p class="mb-2 text-muted">أو تواصل معنا مباشرة:</p>
             <div class="d-flex justify-content-center gap-4 fs-4">
               <a href="tel:01000606725" class="text-success" title="اتصال"><i class="bi bi-telephone-fill"></i></a>
-              <a href="https://wa.me/2011002663806" target="_blank" class="text-success" title="واتساب"><i class="bi bi-whatsapp"></i></a>
-              <a href="mailto:tawfykelgohre8@gmail.com" class="text-success" title="بريد إلكتروني"><i class="bi bi-envelope-fill"></i></a>
+              <a href="https://wa.me/2011002663806" target="_blank" class="text-success" title="واتساب"><i
+                  class="bi bi-whatsapp"></i></a>
+              <a href="mailto:tawfykelgohre8@gmail.com" class="text-success" title="بريد إلكتروني"><i
+                  class="bi bi-envelope-fill"></i></a>
             </div>
           </div>
 
@@ -60,3 +73,47 @@
     </div>
   </div>
 </section>
+
+
+
+
+
+<!-- Vodafone Modal -->
+<div class="modal fade" id="vodafoneModal" tabindex="-1" aria-labelledby="vodafoneModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content text-center">
+      <div class="modal-header">
+        <h5 class="modal-title" id="vodafoneModalLabel">تفاصيل فودافون كاش</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="إغلاق"></button>
+      </div>
+      <div class="modal-body">
+        <p class="mb-2">📱 رقم فودافون كاش:</p>
+        <h4 class="text-danger fw-bold">01000606725</h4>
+        <p class="small text-muted mt-3">من فضلك ارفق صورة الإيصال في نموذج التبرع.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Instapay & Meeza Modal -->
+<div class="modal fade" id="instapayModal" tabindex="-1" aria-labelledby="instapayModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content text-center">
+      <div class="modal-header">
+        <h5 class="modal-title" id="instapayModalLabel">تفاصيل التحويل عبر Instapay أو الحساب البنكي</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="إغلاق"></button>
+      </div>
+      <div class="modal-body">
+        <p class="mb-2">📱 رقم التحويل عبر Instapay:</p>
+        <h4 class="fw-bold text-primary" dir="ltr">01102663806</h4>
+
+        <hr class="my-3">
+
+        <p class="mb-2">💳 رقم الحساب البنكي (كارت ميزة):</p>
+        <h4 class="fw-bold text-success" dir="ltr">5087 0350 4877 8536</h4>
+
+        <p class="small text-muted mt-3">من فضلك بعد التحويل، قم بإرفاق صورة الإيصال داخل نموذج التبرع.</p>
+      </div>
+    </div>
+  </div>
+</div>

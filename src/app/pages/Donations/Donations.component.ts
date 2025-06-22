@@ -1,64 +1,74 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
-import { FormsModule, NgForm } from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
+declare var bootstrap: any;
 
 @Component({
   selector: 'app-Donations',
   templateUrl: './Donations.component.html',
   styleUrls: ['./Donations.component.css'],
-  imports:[FormsModule,CommonModule],
-  standalone:true
+  imports: [ReactiveFormsModule, CommonModule],
+  standalone: true
 })
-export class DonationsComponent   {
-selectedFile: File | null = null;
+export class DonationsComponent {
+  constructor(private readonly toaster:ToastrService ){}
+
+payMent: FormGroup = new FormGroup({
+  fullName: new FormControl(null, [
+    Validators.required,
+    Validators.minLength(3)
+  ]),
+  DonationValue: new FormControl(null, [
+    Validators.required,
+    Validators.min(1)
+  ]),
+  PaymentMethod: new FormControl(null, [
+    Validators.required
+  ]),
+  imageDonation: new FormControl(null, [
+    Validators.required
+  ]),
+  message: new FormControl(null, [
+    Validators.maxLength(200)
+  ])
+});
 
 
-  onPaymentMethodChange(event:Event){
-    const selected = (event.target as HTMLSelectElement ).value
 
-   if (selected === 'vodafone') {
-    const modal = new (window as any).bootstrap.Modal(document.getElementById('vodafoneModal'));
-    modal.show();
-  } else if (selected === 'instapay') {
-    const modal = new (window as any).bootstrap.Modal(document.getElementById('instapayModal'));
-    modal.show();
+  submit(){
+    if(this.payMent.valid){
+      this.toaster.success('تم التبرع بنجاح! شكراً لمساهمتك، تبرعك يغيّر حياة 💚');
+      this.payMent.reset();
+    }
   }
+
+
+  showReceipt = false;
+  selectedFile: File | null = null;
+
+  openPaymentModal(event: any) {
+    const method = event.target.value;
+
+    let modalId = '';
+
+    if (method === 'vodafone') {
+      modalId = 'vodafoneModal';
+      this.showReceipt = true;
+    } else if (method === 'instapay') {
+      modalId = 'instapayModal';
+      this.showReceipt = true;
+    } else {
+      this.showReceipt = false;
+    }
+
+    if (modalId) {
+      const modal = new bootstrap.Modal(document.getElementById(modalId)!);
+      modal.show();
+    }
   }
 
-
-  onFileSelected(event: any) {
-  this.selectedFile = event.target.files[0];
-}
-
-
-submitDonation(method: string) {
-  if (!this.selectedFile) {
-    alert("من فضلك ارفع صورة الدفع");
-    return;
+  onFileChange(event: any) {
+    this.selectedFile = event.target.files[0];
   }
-
-  const name = (document.getElementById('donorName') as HTMLInputElement)?.value;
-  const amount = (document.getElementById('amount') as HTMLInputElement)?.value;
-  const notes = (document.getElementById('notes') as HTMLTextAreaElement)?.value;
-
-  const formData = new FormData();
-  formData.append('name', name);
-  formData.append('amount', amount);
-  formData.append('notes', notes);
-  formData.append('method', method);
-  formData.append('screenshot', this.selectedFile!);
-
-  // ممكن ترسلها لـ API هنا
-
-  console.log("البيانات المجمعة:", formData);
-
-  alert("✅ تم استلام التبرع، سيتم التواصل معك");
-
-  // قفل المودال
-  const modalEl = document.getElementById(method + 'Modal');
-  const modal = (window as any).bootstrap.Modal.getInstance(modalEl);
-  modal.hide();
-}
-
-
 }

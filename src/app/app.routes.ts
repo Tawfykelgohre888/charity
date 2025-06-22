@@ -9,12 +9,11 @@ import { DonationsComponent } from './pages/Donations/Donations.component';
 import { BoardMembersComponent } from './pages/boardMembers/boardMembers.component';
 
 export const routes: Routes = [
-  { path: '', component: HomeComponent,title:"home" },
-  { path: 'about', component: AboutComponent,title:"about" },
-  { path: 'contact', component: ContactComponent,title:"contact" },
-  { path: 'services', component: ServicesComponent,title:"services" },
-  { path: 'volunteer', component: VolunteerComponent,title:"volunteer" },
-  { path: 'donations', component: DonationsComponent,title:"Donations" },
-  { path: 'board-Members', component: BoardMembersComponent,title:"boardMembers " },
-  { path: 'footer', component: FooterComponent,title:"footer" },
+  { path: '', component: HomeComponent,title:"الرئيسيه" },
+  { path: 'about', component: AboutComponent,title:"عن الجمعية" },
+  { path: 'contact', component: ContactComponent,title:"تواصل معنا" },
+  { path: 'services', component: ServicesComponent,title:"الخدمات" },
+  { path: 'volunteer', component: VolunteerComponent,title:"التطوع" },
+  { path: 'donations', component: DonationsComponent,title:"تبرعات" },
+  { path: 'board-Members', component: BoardMembersComponent,title:"مجلس الاداره " },
 ];
