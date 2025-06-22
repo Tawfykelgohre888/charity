@@ -20,40 +20,40 @@ export class BoardMembersComponent implements OnInit {
     position: 'رئيس مجلس الإدارة',
     job: 'مهندس مدني',
     Image: 'assets/images/mohamed.jpg',
-    phone: '01001234567',
-    whatsapp: '01001234567'
+    phone: '01003357425',
+    whatsapp: '01003357425'
   },
     {
     name: 'م. توفيق عبدالرحمن الجوهري',
     position: 'الأمين العام',
     job: 'مهندس برمجيات',
     Image: 'assets/images/tawfik.jpg',
-    phone: '01001234567',
-    whatsapp: '01001234567'
+    phone: '01000606725',
+    whatsapp: '01000606725'
   },
     {
     name: 'أ. عادل علي عبده',
     position: 'أمين الصندوق',
     job: 'معلم أول خبير',
     Image: 'assets/images/adelElgohre.jpg',
-    phone: '01001234567',
-    whatsapp: '01001234567'
+    phone: '01002026712',
+    whatsapp: '01002026712'
   },
   {
     name: 'أ. عمرو محمد عبده',
     position: 'نائب رئيس مجلس الإدارة',
     job: 'موظف بالوحدة المحلية',
     Image: '../../../assets/images/amrelgohre.jfif',
-    phone: '⁦+20 10 09169151⁩',
-    whatsapp: '⁦+20 10 09169151⁩'
+    phone: '01009169151',
+    whatsapp: '01009169151'
   },
   {
     name: 'أ. عادل السيد الجوهري',
     position: 'عضو مجلس الإدارة',
     job: 'مدير مصنع  للملابس الجاهزة',
     Image: '../../../assets/images/adelels.jfif',
-    phone: '01001234567',
-    whatsapp: '01001234567'
+    phone: '01063938473',
+    whatsapp: '01063938473'
   },
 
   {
@@ -61,8 +61,8 @@ export class BoardMembersComponent implements OnInit {
     position: 'عضو مجلس الإدارة',
     job: 'مهندس مدني',
     Image: 'assets/images/file.enc',
-    phone: '01001234567',
-    whatsapp: '01001234567'
+    phone: '01066709249',
+    whatsapp: '01066709249'
   },
 
   {
@@ -70,8 +70,8 @@ export class BoardMembersComponent implements OnInit {
     position: 'عضو مجلس الإدارة',
     job: 'أخصائي نفسي أول',
     Image: 'assets/images/fayza.png',
-    phone: '01001234567',
-    whatsapp: '01001234567'
+    phone: '01092040307',
+    whatsapp: '01092040307'
   }
 ];
 

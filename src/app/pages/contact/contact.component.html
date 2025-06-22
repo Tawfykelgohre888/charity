@@ -1,78 +1,89 @@
-<section class="py-5 my-3 " dir="rtl" style="font-family: 'Cairo', sans-serif; background-color: #f8f9fa;">
+<section class="py-5 my-5" dir="rtl" style="font-family: 'Cairo', sans-serif; background-color: #f3fdf4;">
   <div class="container px-lg-5">
 
     <!-- العنوان -->
     <div class="text-center mb-5">
       <h2 class="fw-bold text-success display-5">تواصل معنا</h2>
-      <p class="text-muted lead fs-5">نحن هنا لخدمتك ومساعدتك بكل حب ❤️</p>
+      <p class="text-muted lead fs-5">نحن في خدمتك دائمًا ونسعد بالتواصل معك ❤️</p>
     </div>
 
-    <div class="row g-5">
+    <div class="row g-5 align-items-stretch">
 
       <!-- الفورم -->
       <div class="col-lg-6">
-        <div class="p-5 rounded shadow-sm bg-white h-100">
-          <form method="POST" action="https://formspree.io/f/mkgbzzwe">
+        <div class="p-5 bg-white shadow-sm rounded-4 h-100">
+          <h5 class="fw-bold mb-4 text-dark"><i class="bi bi-chat-right-text-fill text-success me-2"></i> أرسل رسالة</h5>
+          <form [formGroup]="content" (ngSubmit)="submitForm()">
             <div class="mb-4">
-              <label for="fullName" class="form-label fw-semibold">
+              <label class="form-label fw-semibold">
                 <i class="bi bi-person-fill text-success me-1"></i> الاسم الكامل
               </label>
-              <input type="text" name="fullName" class="form-control form-control-lg" id="fullName" placeholder="أدخل اسمك" required>
+              <input formControlName="fullName" type="text" class="form-control form-control-lg" placeholder="أدخل اسمك" required>
             </div>
 
             <div class="mb-4">
-              <label for="email" class="form-label fw-semibold">
+              <label class="form-label fw-semibold">
                 <i class="bi bi-envelope-fill text-success me-1"></i> البريد الإلكتروني
               </label>
-              <input type="email" name="email" class="form-control form-control-lg" id="email" placeholder="example@email.com" required>
-            </div>
-            <div class="mb-4">
-              <label for="number" class="form-label fw-semibold">
-                <i class="bi bi-envelope-fill text-success me-1"></i> رقم الهاتف
-              </label>
-              <input type="number" name="number" class="form-control form-control-lg" id="number" placeholder="مثال:0123456789" required>
+              <input formControlName="email" type="email" class="form-control form-control-lg" placeholder="example@email.com" required>
             </div>
 
             <div class="mb-4">
-              <label for="message" class="form-label fw-semibold">
+              <label class="form-label fw-semibold">
+                <i class="bi bi-phone-fill text-success me-1"></i> رقم الهاتف
+              </label>
+              <input formControlName="phone" type="tel" class="form-control form-control-lg" placeholder="مثال: 01012345678" required>
+            </div>
+
+            <div class="mb-4">
+              <label class="form-label fw-semibold">
                 <i class="bi bi-chat-dots-fill text-success me-1"></i> رسالتك
               </label>
-              <textarea class="form-control form-control-lg" name="message" id="message" rows="5" placeholder="اكتب رسالتك هنا..." required></textarea>
+              <textarea formControlName="message" class="form-control form-control-lg" rows="5" placeholder="اكتب رسالتك هنا..." required></textarea>
             </div>
 
-            <button type="submit" class="btn btn-success btn-lg w-100 fw-bold">إرسال الرسالة</button>
+            <button [disabled]="content.invalid" type="submit" class="btn btn-success btn-lg w-100 fw-bold">
+              <i class="bi bi-send-fill me-1"></i> إرسال الرسالة
+            </button>
+
+            <div class="text-center text-muted mt-3 small">
+              📬 سيتم التواصل معك خلال 24 ساعة من خلال البريد أو الهاتف.
+            </div>
           </form>
         </div>
       </div>
 
       <!-- بيانات التواصل -->
       <div class="col-lg-6">
-        <div class="p-5 rounded shadow-sm bg-white h-100">
-          <h4 class="fw-bold text-success mb-4">
-            <i class="bi bi-info-circle-fill me-1"></i> معلومات التواصل
-          </h4>
-          <ul class="list-unstyled fs-5 lh-lg">
-            <li>
-              <i class="bi bi-geo-alt-fill text-success me-2 fs-5"></i>
-              الشرقية - منشأة رضوان، أبو كبير
-            </li>
-            <li>
-              <i class="bi bi-telephone-fill text-success me-2 fs-5"></i>
-              <a href="tel:01102663806" class="text-dark text-decoration-none">01102663806</a>
-            </li>
-            <li>
-              <i class="bi bi-whatsapp text-success me-2 fs-5"></i>
-              <a href="https://wa.me/201006433896" target="_blank" class="text-dark text-decoration-none">01006433896</a>
-            </li>
-            <li>
-              <i class="bi bi-envelope-fill text-success me-2 fs-5"></i>
-              <a href="mailto:tawfykelgohre8@gmail.com" class="text-dark text-decoration-none">tawfykelgohre8&#64;gmail.com</a>
-            </li>
-          </ul>
+        <div class="p-5 bg-white shadow-sm rounded-4 h-100 d-flex flex-column justify-content-between">
+          <div>
+            <h5 class="fw-bold text-success mb-4"><i class="bi bi-info-circle-fill me-1"></i> معلومات التواصل</h5>
+            <ul class="list-unstyled fs-5 lh-lg">
+              <li class="d-flex align-items-center mb-3">
+                <i class="bi bi-geo-alt-fill text-success me-2 fs-5"></i>
+                الشرقية - منشأة رضوان، أبو كبير
+              </li>
+              <li class="d-flex align-items-center mb-3">
+                <i class="bi bi-telephone-fill text-success me-2 fs-5"></i>
+                <a href="tel:01102663806" class="text-dark text-decoration-none">01102663806</a>
+              </li>
+              <li class="d-flex align-items-center mb-3">
+                <i class="bi bi-whatsapp text-success me-2 fs-5"></i>
+                <a href="https://wa.me/201006433896" target="_blank" class="text-dark text-decoration-none">01006433896</a>
+              </li>
+              <li class="d-flex align-items-center">
+                <i class="bi bi-envelope-fill text-success me-2 fs-5"></i>
+                <a href="mailto:tawfykelgohre8@gmail.com" class="text-dark text-decoration-none">
+                  tawfykelgohre8&#64;gmail.com
+                </a>
+              </li>
+            </ul>
+          </div>
 
           <!-- الخريطة -->
-          <div class="ratio ratio-16x9 mt-4 rounded-3 overflow-hidden shadow-sm border">
-            <iframe src="https://maps.google.com/maps?q=منشأة رضوان&t=&z=13&ie=UTF8&iwloc=&output=embed" loading="lazy" allowfullscreen></iframe>
+          <div class="ratio ratio-16x9 rounded-3 overflow-hidden border shadow-sm">
+            <iframe src="https://maps.google.com/maps?q=منشأة رضوان&t=&z=13&ie=UTF8&iwloc=&output=embed"
+              loading="lazy" allowfullscreen></iframe>
           </div>
         </div>
       </div>

@@ -1,4 +1,3 @@
-
 <div class="d-flex flex-column min-vh-100">
 
   <app-nav-bar></app-nav-bar>
@@ -7,6 +6,22 @@
   <main class="flex-fill d-flex justify-content-center align-items-center">
     <router-outlet></router-outlet>
   </main>
+
+  <!-- زرار واتساب ثابت -->
+<a href="https://wa.me/2011002663806?text=مرحبًا، أود المساعدة أو التبرع مع الجمعية"
+   class="floating-btn whatsapp-btn"
+   target="_blank"
+   title="تواصل عبر واتساب">
+  <i class="bi bi-whatsapp"></i>
+</a>
+
+<!-- زرار تبرع ثابت -->
+<a routerLink="/donations"
+   class="floating-btn donate-btn"
+   title="تبرع الآن">
+  <i class="bi bi-heart-fill me-1"></i> تبرع
+</a>
+
 
   <!-- Footer component -->
   <app-footer></app-footer>

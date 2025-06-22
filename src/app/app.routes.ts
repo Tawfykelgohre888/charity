@@ -14,7 +14,7 @@ export const routes: Routes = [
   { path: 'contact', component: ContactComponent,title:"contact" },
   { path: 'services', component: ServicesComponent,title:"services" },
   { path: 'volunteer', component: VolunteerComponent,title:"volunteer" },
-  { path: 'Donations', component: DonationsComponent,title:"Donations" },
+  { path: 'donations', component: DonationsComponent,title:"Donations" },
   { path: 'board-Members', component: BoardMembersComponent,title:"boardMembers " },
   { path: 'footer', component: FooterComponent,title:"footer" },
 ];

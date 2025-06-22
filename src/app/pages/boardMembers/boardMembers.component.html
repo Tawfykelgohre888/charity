@@ -6,37 +6,36 @@
     </p>
 
     <div class="row g-4 justify-content-center">
-  @for ( member of boardNumber; track $index) {
-    <div class="col-md-4 col-sm-6">
-      <div class="card member-card border-0 h-100 text-center p-4 transition">
-        <img
-          [src]="member.Image"
-          class="rounded-circle mx-auto mb-3 shadow"
-          width="120"
-          height="120"
-          alt="صورة {{ member.name }}"
-        />
-        <h5 class="fw-bold text-success">{{ member.name }}</h5>
-        <p class="mb-1 text-muted">{{ member.position }}</p>
-        <p class="text-muted small">{{ member.job }}</p>
+      @for (member of boardNumber; track $index) {
+        <div class="col-md-4 col-sm-6">
+          <div class="card border-0 text-center p-4 shadow-sm h-100 member-card transition">
+            <img
+              [src]="member.Image || 'assets/images/default-profile.png'"
+              alt="صورة {{ member.name }}"
+              class="rounded-circle mx-auto mb-3 shadow"
+              width="120"
+              height="120"
+              loading="lazy"
+            />
+            <h5 class="fw-bold text-success">{{ member.name }}</h5>
+            <p class="mb-1 text-muted">{{ member.position }}</p>
+            <p class="text-muted small">{{ member.job }}</p>
 
-        <!-- أيقونات التواصل -->
-        <div class="d-flex justify-content-center gap-3 mt-3 fs-5">
-          @if (member.phone) {
-            <a [href]="'tel:' + member.phone" class="text-dark" title="اتصال">
-              <i class="fas fa-phone text-success"></i>
-            </a>
-          }
-          @if (member.whatsapp) {
-            <a [href]="'https://wa.me/2' + member.whatsapp" target="_blank" class="text-dark" title="واتساب">
-              <i class="fab fa-whatsapp text-success"></i>
-            </a>
-          }
+            <div class="d-flex justify-content-center gap-3 mt-3 fs-5">
+              @if (member.phone) {
+                <a [href]="'tel:' + member.phone" class="text-dark" title="اتصال">
+                  <i class="fas fa-phone text-success"></i>
+                </a>
+              }
+              @if (member.whatsapp) {
+                <a [href]="'https://wa.me/2' + member.whatsapp" class="text-dark" target="_blank" title="واتساب">
+                  <i class="fab fa-whatsapp text-success"></i>
+                </a>
+              }
+            </div>
+          </div>
         </div>
-      </div>
+      }
     </div>
-  }
-</div>
-
   </div>
 </section>

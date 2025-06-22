@@ -1,88 +1,24 @@
-<section id="services" class="py-5 my-4 bg-body-tertiary" dir="rtl" style="font-family: 'Cairo', sans-serif;">
+<section class="py-5 my-4 bg-body-tertiary" dir="rtl" style="font-family: 'Cairo', sans-serif;">
   <div class="container">
-
-    <!-- عنوان القسم -->
     <div class="text-center mb-5">
       <h2 class="fw-bold text-success">خدمات الجمعية</h2>
       <p class="text-muted fs-5">نقدم خدمات متنوعة لدعم المجتمع وتنميته</p>
     </div>
 
-    <!-- بطاقات الخدمات -->
     <div class="row g-4">
-
-      <!-- بطاقة خدمة -->
-      <div class="col-md-6 col-lg-4">
-        <div class="bg-white shadow-sm rounded-3 p-4 text-center h-100 hover-shadow transition">
+      @for (service of services; track $index) {
+              <div class="col-md-6 col-lg-4" >
+        <div class="bg-white shadow-sm rounded-4 p-4 text-center h-100 service-card">
           <div class="mb-3 fs-1 text-success">
             <div class="d-inline-block bg-success bg-opacity-10 rounded-circle p-3">
-              <i class="fas fa-hand-holding-heart"></i>
+              <i [class]="service.icon"></i>
             </div>
           </div>
-          <h5 class="fw-bold mb-2">المساعدات الإنسانية</h5>
-          <p class="text-muted">توزيع مساعدات غذائية ومالية للفئات الأكثر احتياجًا شهريًا.</p>
+          <h5 class="fw-bold mb-2">{{ service.title }}</h5>
+          <p class="text-muted">{{ service.description }}</p>
         </div>
       </div>
-
-      <div class="col-md-6 col-lg-4">
-        <div class="bg-white shadow-sm rounded-3 p-4 text-center h-100 hover-shadow transition">
-          <div class="mb-3 fs-1 text-success">
-            <div class="d-inline-block bg-success bg-opacity-10 rounded-circle p-3">
-              <i class="fas fa-seedling"></i>
-            </div>
-          </div>
-          <h5 class="fw-bold mb-2">التوعية البيئية</h5>
-          <p class="text-muted">حملات نظافة وتشجير وتوعية للحفاظ على البيئة في القرى والمدارس.</p>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-4">
-        <div class="bg-white shadow-sm rounded-3 p-4 text-center h-100 hover-shadow transition">
-          <div class="mb-3 fs-1 text-success">
-            <div class="d-inline-block bg-success bg-opacity-10 rounded-circle p-3">
-              <i class="fas fa-school"></i>
-            </div>
-          </div>
-          <h5 class="fw-bold mb-2">دعم التعليم</h5>
-          <p class="text-muted">توفير شنط مدرسية ودروس تقوية مجانًا للطلاب المحتاجين.</p>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-4">
-        <div class="bg-white shadow-sm rounded-3 p-4 text-center h-100 hover-shadow transition">
-          <div class="mb-3 fs-1 text-success">
-            <div class="d-inline-block bg-success bg-opacity-10 rounded-circle p-3">
-              <i class="fas fa-user-nurse"></i>
-            </div>
-          </div>
-          <h5 class="fw-bold mb-2">رعاية صحية</h5>
-          <p class="text-muted">تنظيم قوافل طبية مجانية وفحوصات دورية لكبار السن والأطفال.</p>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-4">
-        <div class="bg-white shadow-sm rounded-3 p-4 text-center h-100 hover-shadow transition">
-          <div class="mb-3 fs-1 text-success">
-            <div class="d-inline-block bg-success bg-opacity-10 rounded-circle p-3">
-              <i class="fas fa-chalkboard-teacher"></i>
-            </div>
-          </div>
-          <h5 class="fw-bold mb-2">تدريب وتأهيل</h5>
-          <p class="text-muted">برامج تدريب مهني وشخصي للشباب لفتح أبواب العمل والفرص.</p>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-4">
-        <div class="bg-white shadow-sm rounded-3 p-4 text-center h-100 hover-shadow transition">
-          <div class="mb-3 fs-1 text-success">
-            <div class="d-inline-block bg-success bg-opacity-10 rounded-circle p-3">
-              <i class="fas fa-people-carry"></i>
-            </div>
-          </div>
-          <h5 class="fw-bold mb-2">الاستجابة للطوارئ</h5>
-          <p class="text-muted">توفير الدعم العاجل في حالات الأزمات والكوارث الطبيعية.</p>
-        </div>
-      </div>
-
+      }
     </div>
   </div>
 </section>

@@ -4,7 +4,7 @@
     <!-- عنوان -->
     <div class="text-center mb-5">
       <h2 class="fw-bold text-success">انضم كمتطوع</h2>
-      <p class="text-muted fs-5">ساعدنا في خدمة المجتمع وكن جزءًا من التغيير</p>
+      <p class="text-muted fs-5">ساعدنا في خدمة المجتمع وكن جزءًا من التغيير الحقيقي</p>
     </div>
 
     <div class="row g-5 align-items-center">
@@ -13,15 +13,18 @@
       <div class="col-lg-6">
         <div class="bg-white shadow-sm rounded-3 p-4" style="line-height: 2;">
           <h5 class="fw-bold mb-3 text-dark">ليه التطوع مهم؟</h5>
-          <p>
-            التطوع هو أحد أهم وسائل العطاء اللي بيغير حياة الآخرين وحياتك أنت كمان.
-            بنقدّر كل شخص عنده رغبة في إنه يمد إيده ويساعد.
+          <p class="text-muted">
+            التطوع مش بس مساعدة، ده رسالة حب وخير.
+            كل لحظة بتقضيها في خدمة غيرك بتصنع فرق حقيقي في حياتهم وفي حياتك أنت كمان.
+          </p>
+          <p class="text-muted">
+            احنا في الجمعية بنقدّر كل متطوع وبنوفر له بيئة محفزة وآمنة لتحقيق أثر واضح.
           </p>
           <ul class="list-unstyled mt-3">
-            <li>✅ اكتساب خبرات ومهارات جديدة</li>
-            <li>✅ خدمة حقيقية للفئات الأكثر احتياجًا</li>
-            <li>✅ شهادة تقدير من الجمعية</li>
-            <li>✅ مجتمع بيحتويك ويدعمك</li>
+            <li>✅ اكتساب مهارات وخبرات ميدانية حقيقية</li>
+            <li>✅ خدمة للفئات الأكثر احتياجًا</li>
+            <li>✅ شهادات تقدير وفرص تدريبية</li>
+            <li>✅ بيئة إيجابية وداعمة</li>
           </ul>
         </div>
       </div>
@@ -30,22 +33,22 @@
       <div class="col-lg-6">
         <div class="bg-white shadow-sm rounded-3 p-4">
           <h5 class="fw-bold mb-3 text-dark">قدّم طلبك الآن</h5>
-          <form action="https://formspree.io/f/myzjppgp"  method="post">
+          <form [formGroup]="volunteer" (ngSubmit)="submitForm()">
             <div class="mb-3">
               <label class="form-label">الاسم الكامل</label>
-              <input type="text" class="form-control" name="Full_name" placeholder="اكتب اسمك بالكامل" required>
+              <input formControlName="fullName" type="text" class="form-control" placeholder="اكتب اسمك بالكامل" required>
             </div>
             <div class="mb-3">
               <label class="form-label">رقم الهاتف</label>
-              <input type="tel" class="form-control" name="phone" placeholder="مثال: 01012345678" required>
+              <input formControlName="phoneNumber" type="tel" class="form-control" placeholder="مثال: 01012345678" required>
             </div>
             <div class="mb-3">
               <label class="form-label">البريد الإلكتروني</label>
-              <input type="email" class="form-control" name="email" placeholder="example@email.com" required>
+              <input formControlName="email" type="email" class="form-control" placeholder="example@email.com" required>
             </div>
             <div class="mb-3">
               <label class="form-label">مجال التطوع</label>
-              <select class="form-select" name="Volunteering field" required>
+              <select formControlName="Volunteering" class="form-select" required>
                 <option selected disabled>اختر مجالًا</option>
                 <option>التوزيع والمساعدات</option>
                 <option>التوعية الصحية أو البيئية</option>
@@ -55,14 +58,37 @@
             </div>
             <div class="mb-3">
               <label class="form-label">رسالة / ملاحظات إضافية</label>
-              <textarea class="form-control" name="massage" rows="3" placeholder="هل لديك أي خبرات أو رغبات خاصة؟"></textarea>
+              <textarea formControlName="message" class="form-control" rows="3" placeholder="هل لديك أي خبرات أو رغبات خاصة؟"></textarea>
             </div>
             <button type="submit" class="btn btn-success px-4">إرسال الطلب</button>
           </form>
+
+          <div class="text-center mt-3 text-muted small">
+            سجل دلوقتي وابدأ رحلتك في التغيير 🌱
+          </div>
         </div>
       </div>
 
     </div>
+  </div>
+</section>
 
+<!-- إحصائيات المتطوعين -->
+<section class="pt-5 pb-0 text-center bg-white mb-2 " dir="rtl" style="font-family: 'Cairo', sans-serif;">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-4">
+        <h3 class="text-success fw-bold">+300</h3>
+        <p class="text-muted mb-0">متطوع نشط</p>
+      </div>
+      <div class="col-md-4">
+        <h3 class="text-success fw-bold">+50</h3>
+        <p class="text-muted mb-0">حملة تطوعية تم تنفيذها</p>
+      </div>
+      <div class="col-md-4">
+        <h3 class="text-success fw-bold">100%</h3>
+        <p class="text-muted mb-0">رضا المتطوعين</p>
+      </div>
+    </div>
   </div>
 </section>

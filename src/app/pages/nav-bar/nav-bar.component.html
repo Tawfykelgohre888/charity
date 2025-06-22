@@ -1,24 +1,30 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-success" dir="rtl" style="font-family: 'Cairo', sans-serif;">
+<nav
+  class="navbar navbar-expand-lg navbar-dark bg-success shadow-sm sticky-top animate__animated animate__fadeInDown"
+  dir="rtl" style="font-family: 'Cairo', sans-serif;">
   <div class="container">
 
-    <!-- شعار الموقع -->
-    <a class="navbar-brand fw-bold d-flex align-items-center" routerLink="/">
-      <img src="../../../assets/images/logo.jfif" alt="Logo" width="40" height="40"
-        class="rounded-circle me-2">
-      <span>جمعية تنمية المجتمع</span>
+    <!-- شعار الموقع مع اسم مختصر وعند المرور يظهر الاسم الكامل -->
+    <a class="navbar-brand fw-bold d-flex align-items-center" routerLink="/home" title="جمعية تنمية المجتمع لحقوق الانسان والحفاظ علي البيئة">
+      <img src="../../../assets/images/logo.jfif" alt="Logo" width="40" height="40" class="rounded-circle ms-2">
+      <span class="d-none d-md-inline" style="font-size: 1.1rem; white-space: nowrap;">
+        جمعية تنمية المجتمع
+      </span>
     </a>
 
     <!-- زر القائمة في الموبايل -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+      aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <!-- روابط التنقل -->
     <div class="collapse navbar-collapse" id="navbarContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 
         <li class="nav-item">
-          <a class="nav-link" routerLink="/" routerLinkActive="active">الرئيسية</a>
+          <a class="nav-link" routerLink="/" routerLinkActive="active">
+            الرئيسية
+          </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="/about" routerLinkActive="active">عن الجمعية</a>
@@ -27,7 +33,7 @@
           <a class="nav-link" routerLink="/services" routerLinkActive="active">الخدمات</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/board-Members" routerLinkActive="active">مجلس الاداره</a>
+          <a class="nav-link" routerLink="/board-Members" routerLinkActive="active">مجلس الإدارة</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="/volunteer" routerLinkActive="active">التطوع</a>
@@ -39,7 +45,9 @@
       </ul>
 
       <!-- زر التبرع -->
-      <a class="btn btn-warning text-dark fw-bold px-4 rounded-pill" routerLink="/Donations" >تبرع الآن</a>
+      <a class="btn btn-warning text-dark fw-bold px-4 rounded-pill ms-lg-3 mt-3 mt-lg-0" routerLink="/Donations">
+        تبرع الآن
+      </a>
     </div>
 
   </div>
