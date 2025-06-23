@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { GoogleSheetService } from '../../services/google-sheet.service';
 declare var bootstrap: any;
 
 @Component({
@@ -12,44 +13,75 @@ declare var bootstrap: any;
   standalone: true
 })
 export class DonationsComponent {
-  constructor(private readonly toaster:ToastrService ){}
+  constructor(
+    private readonly toaster: ToastrService,
+    private readonly googleSheet: GoogleSheetService
+  ) {}
 
-payMent: FormGroup = new FormGroup({
-  fullName: new FormControl(null, [
-    Validators.required,
-    Validators.minLength(3)
-  ]),
-  DonationValue: new FormControl(null, [
-    Validators.required,
-    Validators.min(1)
-  ]),
-  PaymentMethod: new FormControl(null, [
-    Validators.required
-  ]),
-  imageDonation: new FormControl(null, [
-    Validators.required
-  ]),
-  message: new FormControl(null, [
-    Validators.maxLength(200)
-  ])
-});
+  // ✅ الفورم بعد إضافة رقم الهاتف
+  payMent: FormGroup = new FormGroup({
+    fullName: new FormControl(null, [
+      Validators.required,
+      Validators.minLength(3)
+    ]),
+    phone: new FormControl(null, [
+      Validators.required,
+      Validators.pattern(/^01[0-2,5]{1}[0-9]{8}$/)  // رقم موبايل مصري
+    ]),
+    DonationValue: new FormControl(null, [
+      Validators.required,
+      Validators.min(1)
+    ]),
+    PaymentMethod: new FormControl(null, [
+      Validators.required
+    ]),
+    imageDonation: new FormControl(null, [
+      Validators.required
+    ]),
+    message: new FormControl(null, [
+      Validators.maxLength(200)
+    ])
+  });
 
-
-
-  submit(){
-    if(this.payMent.valid){
-      this.toaster.success('تم التبرع بنجاح! شكراً لمساهمتك، تبرعك يغيّر حياة 💚');
-      this.payMent.reset();
-    }
-  }
-
-
+  // ✅ الحالة
+  loading: boolean = false;
   showReceipt = false;
   selectedFile: File | null = null;
+  successMessage: string = '';
+  errorMessage: string = '';
 
+  // ✅ إرسال البيانات
+  submitForm() {
+    if (this.payMent.invalid) {
+      this.errorMessage = 'من فضلك تأكد من ملء كل الحقول بشكل صحيح.';
+      this.successMessage = '';
+      return;
+    }
+
+    this.loading = true;
+    this.errorMessage = '';
+    this.successMessage = '';
+
+    // إرسال للـ Google Sheets
+    this.googleSheet.sendDonationData(this.payMent.value).subscribe({
+      next: () => {
+        this.toaster.success('شكراً لتبرعك!');
+        this.successMessage = 'تم إرسال التبرع بنجاح. شكرًا لدعمك ❤️';
+        this.loading = false;
+        this.payMent.reset();
+      },
+      error: (err) => {
+        console.error('💥 خطأ أثناء الإرسال:', err);
+        this.toaster.error('حدث خطأ أثناء إرسال التبرع. برجاء المحاولة لاحقاً.');
+        this.errorMessage = 'حدث خطأ أثناء الإرسال. برجاء المحاولة لاحقًا.';
+        this.loading = false;
+      }
+    });
+  }
+
+  // ✅ فتح مودال الدفع
   openPaymentModal(event: any) {
     const method = event.target.value;
-
     let modalId = '';
 
     if (method === 'vodafone') {
@@ -68,6 +100,7 @@ payMent: FormGroup = new FormGroup({
     }
   }
 
+  // ✅ رفع صورة الإيصال
   onFileChange(event: any) {
     this.selectedFile = event.target.files[0];
   }

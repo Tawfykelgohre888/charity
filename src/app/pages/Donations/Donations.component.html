@@ -1,57 +1,82 @@
-<section class="py-5 my-4" style="font-family: 'Cairo', sans-serif; background-color: #f4fdf6;" dir="rtl">
+<section class="py-5" style="font-family: 'Cairo', sans-serif; background-color: #f4fdf6;" dir="rtl">
   <div class="container">
-    <div class="row align-items-center g-5">
+    <div class="row align-items-center gy-5">
 
-      <!-- النص -->
-      <div class="col-lg-6 text-center text-lg-end">
-        <h2 class="fw-bold text-success mb-3">كن سببًا في تغيير حياة شخص</h2>
-        <p class="text-muted fs-5">ساهم معنا الآن بالتبرع، كل مبلغ صغير يُحدث فرقًا كبيرًا ❤️</p>
-        <ul class="list-unstyled text-muted fs-6 mt-4">
-          <li><i class="bi bi-check-circle-fill text-success ms-2"></i> دعم أسر محتاجة</li>
-          <li><i class="bi bi-check-circle-fill text-success ms-2"></i> تجهيز أيتام</li>
-          <li><i class="bi bi-check-circle-fill text-success ms-2"></i> مساعدات طبية وعلاجية</li>
-        </ul>
+      <!-- النص - يظهر أولًا على الموبايل -->
+      <div class="col-lg-6 order-0 order-lg-0">
+        <div class="pe-lg-5">
+          <h2 class="fw-bold text-success mb-3 display-5">كن سببًا في تغيير حياة شخص</h2>
+          <p class="text-muted fs-5 mb-4">ساهم معنا الآن بالتبرع، كل مبلغ صغير يُحدث فرقًا كبيرًا ❤️</p>
+          <ul class="list-unstyled text-muted fs-5">
+            <li class="mb-3"><i class="bi bi-check-circle-fill text-success ms-2"></i> دعم أسر محتاجة</li>
+            <li class="mb-3"><i class="bi bi-check-circle-fill text-success ms-2"></i> تجهيز أيتام</li>
+            <li class="mb-3"><i class="bi bi-check-circle-fill text-success ms-2"></i> مساعدات طبية وعلاجية</li>
+          </ul>
+        </div>
       </div>
 
-      <!-- الفورم -->
-      <div class="col-lg-6">
-        <div class="p-4 bg-white rounded-4 shadow-sm border">
-          <h4 class="text-center text-success mb-4">نموذج التبرع</h4>
+      <!-- الفورم - يظهر بعد النص على الموبايل -->
+      <div class="col-lg-6 order-1 order-lg-1">
+        <div class="p-4 p-md-5 bg-white rounded-4 shadow border">
+          <h4 class="text-center text-success mb-4 fw-bold fs-3">نموذج التبرع</h4>
 
-          <form [formGroup]="payMent"  >
+          <!-- رسائل -->
+          <div *ngIf="successMessage" class="alert alert-success text-center py-2">{{ successMessage }}</div>
+          <div *ngIf="errorMessage" class="alert alert-danger text-center py-2">{{ errorMessage }}</div>
+
+          <form [formGroup]="payMent" (ngSubmit)="submitForm()">
+            <!-- الاسم -->
             <div class="mb-3">
               <label class="form-label fw-semibold">الاسم الكامل</label>
-              <input type="text" class="form-control rounded-pill px-4 py-2" placeholder="أدخل اسمك" required>
+              <input formControlName="fullName" type="text" class="form-control rounded-pill px-4 py-2" placeholder="أدخل اسمك" required>
             </div>
+
+            <!-- الهاتف -->
+            <div class="mb-3">
+              <label class="form-label fw-semibold">رقم الهاتف</label>
+              <input formControlName="phone" type="tel" class="form-control rounded-pill px-4 py-2" placeholder="رقم الهاتف للتواصل" required>
+            </div>
+
+            <!-- قيمة التبرع -->
             <div class="mb-3">
               <label class="form-label fw-semibold">قيمة التبرع (جنيه)</label>
-              <input type="number" class="form-control rounded-pill px-4 py-2" placeholder="مثال: 200" required>
+              <input formControlName="DonationValue" type="number" class="form-control rounded-pill px-4 py-2" placeholder="مثال: 200" required>
             </div>
+
+            <!-- طريقة الدفع -->
             <div class="mb-3">
               <label class="form-label fw-semibold">طريقة الدفع</label>
-              <select class="form-select rounded-pill px-4 py-2" (change)="openPaymentModal($event)" required>
+              <select formControlName="PaymentMethod" class="form-select rounded-pill px-4 py-2" (change)="openPaymentModal($event)" required>
                 <option selected disabled>اختر طريقة الدفع</option>
                 <option value="vodafone">Vodafone Cash</option>
                 <option value="instapay">Instapay</option>
               </select>
             </div>
 
-            @if (showReceipt) {
-            <div class="mb-3">
+            <!-- إيصال التحويل -->
+            <div class="mb-3" *ngIf="showReceipt">
               <label class="form-label fw-semibold">ارفع صورة إيصال التحويل</label>
-              <input type="file" class="form-control rounded-3" (change)="onFileChange($event)" accept="image/*">
+              <input formControlName="imageDonation" type="file" class="form-control rounded-3" (change)="onFileChange($event)" accept="image/*">
             </div>
-            }
 
-
-
+            <!-- الملاحظات -->
             <div class="mb-3">
               <label class="form-label fw-semibold">ملاحظات</label>
-              <textarea class="form-control rounded-3 px-3 py-2" rows="3"
-                placeholder="هل لديك رسالة أو هدف للتبرع؟"></textarea>
+              <textarea formControlName="message" class="form-control rounded-3 px-3 py-2" rows="3" placeholder="هل لديك رسالة أو هدف للتبرع؟"></textarea>
             </div>
-            <button type="submit" class="btn btn-success w-100 py-2 fw-bold rounded-pill">
-              <i class="bi bi-heart-fill me-1"></i> تبرع الآن
+
+            <!-- تأكيد -->
+            <div class="form-check my-3 text-start">
+              <input class="form-check-input" type="checkbox" id="confirmAmount" required>
+              <label class="form-check-label text-muted" for="confirmAmount">
+                أؤكد أني أريد التبرع بالمبلغ المذكور أعلاه
+              </label>
+            </div>
+
+            <!-- الزر -->
+            <button type="submit" [disabled]="loading" class="btn btn-success w-100 py-3 fw-bold rounded-pill fs-5">
+              <span *ngIf="!loading"><i class="bi bi-heart-fill me-2"></i> تبرع الآن</span>
+              <span *ngIf="loading"><i class="bi bi-hourglass-split me-2"></i> جاري المعالجة...</span>
             </button>
           </form>
 
@@ -60,21 +85,16 @@
             <p class="mb-2 text-muted">أو تواصل معنا مباشرة:</p>
             <div class="d-flex justify-content-center gap-4 fs-4">
               <a href="tel:01000606725" class="text-success" title="اتصال"><i class="bi bi-telephone-fill"></i></a>
-              <a href="https://wa.me/2011002663806" target="_blank" class="text-success" title="واتساب"><i
-                  class="bi bi-whatsapp"></i></a>
-              <a href="mailto:tawfykelgohre8@gmail.com" class="text-success" title="بريد إلكتروني"><i
-                  class="bi bi-envelope-fill"></i></a>
+              <a href="https://wa.me/2011002663806" target="_blank" class="text-success" title="واتساب"><i class="bi bi-whatsapp"></i></a>
+              <a href="mailto:tawfykelgohre8@gmail.com" class="text-success" title="بريد إلكتروني"><i class="bi bi-envelope-fill"></i></a>
             </div>
           </div>
-
         </div>
       </div>
 
     </div>
   </div>
 </section>
-
-
 
 
 
