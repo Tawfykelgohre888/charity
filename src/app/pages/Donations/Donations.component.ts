@@ -40,7 +40,8 @@ export class DonationsComponent {
     ]),
     message: new FormControl(null, [
       Validators.maxLength(200)
-    ])
+    ]),
+    Data: new FormControl(null)
   });
 
   // ✅ الحالة
@@ -52,6 +53,13 @@ export class DonationsComponent {
 
   // ✅ إرسال البيانات
   submitForm() {
+    const currentData = new Date().toLocaleDateString('en-GB')
+
+    const DataSend ={
+      ...this.payMent.value,
+      donationData:currentData,
+    }
+
     if (this.payMent.invalid) {
       this.errorMessage = 'من فضلك تأكد من ملء كل الحقول بشكل صحيح.';
       this.successMessage = '';
@@ -63,7 +71,7 @@ export class DonationsComponent {
     this.successMessage = '';
 
     // إرسال للـ Google Sheets
-    this.googleSheet.sendDonationData(this.payMent.value).subscribe({
+    this.googleSheet.sendDonationData(DataSend).subscribe({
       next: () => {
         this.toaster.success('شكراً لتبرعك!');
         this.successMessage = 'تم إرسال التبرع بنجاح. شكرًا لدعمك ❤️';

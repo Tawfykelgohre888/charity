@@ -25,7 +25,7 @@ export class GoogleSheetService {
 
 
   // form Donation
-  urlDonation = 'https://sheetdb.io/api/v1/dt3p59zlrcmoc';
+  urlDonation = 'https://sheetdb.io/api/v1/qw1ibg96dqu9h';
   sendDonationData(data:any):Observable<any>{
     return this.httpClient.post(this.urlDonation,{data})
   }
