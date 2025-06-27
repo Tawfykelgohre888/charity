@@ -2,3 +2,9 @@
   border-bottom: 2px solid #ffc107;
   font-weight: bold;
 }
+
+
+
+.navbar{
+  transition: all 0.5s;
+}

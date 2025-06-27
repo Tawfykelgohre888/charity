@@ -9,7 +9,7 @@ import { DonationsComponent } from './pages/Donations/Donations.component';
 import { BoardMembersComponent } from './pages/boardMembers/boardMembers.component';
 
 export const routes: Routes = [
-  { path: '', component: HomeComponent,title:"الرئيسيه" },
+  { path: '', loadComponent:()=> import('./pages/home/home.component').then(c =>c.HomeComponent ) ,title:"الرئيسيه" },
   { path: 'about', component: AboutComponent,title:"عن الجمعية" },
   { path: 'contact', component: ContactComponent,title:"تواصل معنا" },
   { path: 'services', component: ServicesComponent,title:"الخدمات" },

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -8,5 +8,14 @@ import { RouterLink } from '@angular/router';
   styleUrl: './nav-bar.component.css'
 })
 export class NavBarComponent {
+  scroll:boolean = false;
+  @HostListener('window:scroll') onscroll(){
 
+    if(scrollY > 0){
+      this.scroll = true
+    }else{
+      this.scroll = false
+    }
+
+  }
 }
