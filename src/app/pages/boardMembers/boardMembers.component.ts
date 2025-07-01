@@ -19,7 +19,7 @@ export class BoardMembersComponent implements OnInit {
     name: 'م. محمد الشبراوي عبدالسلام',
     position: 'رئيس مجلس الإدارة',
     job: 'مهندس مدني',
-    Image: 'assets/images/mohamed.jpg',
+    Image: '../../../assets/images/shprawy.jfif',
     phone: '01003357425',
     whatsapp: '01003357425'
   },
